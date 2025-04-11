@@ -19,6 +19,7 @@ extensions = [
     'nbsphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.autodoc',
+    'sphinx_sitemap', 
 ]
 
 html_theme = 'sphinx_rtd_theme'
@@ -40,3 +41,10 @@ html_static_path = ['_static']
 
 # Optional: suppress warnings about Jupyter kernel metadata
 nbsphinx_allow_errors = True
+
+
+# The full base URL for your GitHub Pages site (important!)
+html_baseurl = 'https://SubirSarkar2021.github.io/4SemCoreLabManual/'
+
+# Optional: Make sure trailing slashes match your URLs
+sitemap_url_scheme = "{link}"
