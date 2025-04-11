@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nth Root of an equation &mdash; 4th Sem Lab Computational Physics  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transcendental Equations" href="D%23Transcendental.html" />
+    <link rel="prev" title="Solving Set of Mesh Equation of an Electrical Circuit" href="B%23ElectricalCircuitEquation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            4th Sem Lab Computational Physics
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A%23CoupledSpringMass.html">Coupled Spring-Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B%23ElectricalCircuitEquation.html">Solving Set of Mesh Equation of an Electrical Circuit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nth Root of an equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Solution-of-Linear-and-Non-linear-equations">Solution of Linear and Non-linear equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Root-Finding-Methods">Root Finding Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Bisection-Method">1. Bisection Method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Steps:"><strong>Steps:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Advantages:"><strong>Advantages:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Disadvantages:"><strong>Disadvantages:</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Newton-Raphson-Method">2. Newton-Raphson Method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Formula:"><strong>Formula:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#steps-1"><strong>Steps:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advantages-1"><strong>Advantages:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages-1"><strong>Disadvantages:</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3.-Secant-Method">3. Secant Method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#formula-1"><strong>Formula:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#steps-2"><strong>Steps:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advantages-2"><strong>Advantages:</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages-2"><strong>Disadvantages:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Finding-the-nth-Root-of-a-Number-using-Numerical-Methods">Finding the nth Root of a Number using Numerical Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Problem-Statement">Problem Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Example:-Compute-Cube-Root-of-27">Example: Compute Cube Root of 27</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="D%23Transcendental.html">Transcendental Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E%23SinkingDepth.html">Sinking Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="F%23NumericalIntegration.html">Numerical Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G%23FourierSeriesSawToothWave.html">Fourier Series Analysis - Saw Tooth Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="H%23FourierSeriesSquareWave.html">Fourier Series Analysis - Square Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="I%23DiracDeltaFunction.html">Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J%23LegendrePoly.html">Legendre Polynomials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">4th Sem Lab Computational Physics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">nth Root of an equation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/LabManual4thSemCoreSphinx/C" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nth-Root-of-an-equation">
+<h1>nth Root of an equation<a class="headerlink" href="#nth-Root-of-an-equation" title="Link to this heading"></a></h1>
+<section id="Solution-of-Linear-and-Non-linear-equations">
+<h2>Solution of Linear and Non-linear equations<a class="headerlink" href="#Solution-of-Linear-and-Non-linear-equations" title="Link to this heading"></a></h2>
+<p>Using Bisection, Newton Raphson and Secant methods, find out roots of the equation.</p>
+<ol class="arabic simple">
+<li><p>To approximate <span class="math notranslate nohighlight">\(n\)</span>th root of a number up to a given number of significant digits.</p></li>
+<li><p>Solve transcendental equations (a) <span class="math notranslate nohighlight">\(\alpha = \tan \alpha\)</span>, (b) <span class="math notranslate nohighlight">\(\sin \alpha = \sqrt{m}\alpha\)</span>.</p></li>
+<li><p>Determine the depth up to which a spherical homogeneous object of given radius and density will sink into a fluid of given density.</p></li>
+</ol>
+</section>
+<section id="Root-Finding-Methods">
+<h2>Root Finding Methods<a class="headerlink" href="#Root-Finding-Methods" title="Link to this heading"></a></h2>
+<section id="1.-Bisection-Method">
+<h3>1. Bisection Method<a class="headerlink" href="#1.-Bisection-Method" title="Link to this heading"></a></h3>
+<p>The <strong>Bisection Method</strong> is a numerical technique for finding the root of a function by iteratively narrowing an interval ([a, b]) where the function changes sign.</p>
+<section id="Steps:">
+<h4><strong>Steps:</strong><a class="headerlink" href="#Steps:" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Choose two points $ a $ and $ b $ such that $ f(a) :nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>cdot <a href="#id3"><span class="problematic" id="id4">`</span></a>f(b) &lt; 0 $.</p></li>
+<li><p>Compute the midpoint $ c = <span class="math">\frac{a + b}{2}</span> $.</p></li>
+<li><p>Check the sign of $ f(c) $:</p>
+<ul class="simple">
+<li><p>If $ f(c) = 0 $, then $ c $ is the root.</p></li>
+<li><p>If $ f(a) :nbsphinx-math:<a href="#id5"><span class="problematic" id="id6">`</span></a>cdot <a href="#id7"><span class="problematic" id="id8">`</span></a>f(c) &lt; 0 $, set $ b = c $; else, set $ a = c $.</p></li>
+</ul>
+</li>
+<li><p>Repeat until $ |f(c)| $ is within a desired tolerance.</p></li>
+</ol>
+</section>
+<section id="Advantages:">
+<h4><strong>Advantages:</strong><a class="headerlink" href="#Advantages:" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Simple and always converges if $ f(x) $ is continuous.</p></li>
+<li><p>Does not require derivatives.</p></li>
+</ul>
+</section>
+<section id="Disadvantages:">
+<h4><strong>Disadvantages:</strong><a class="headerlink" href="#Disadvantages:" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Convergence is slow.</p></li>
+<li><p>Requires two initial points that bracket a root.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="2.-Newton-Raphson-Method">
+<h3>2. Newton-Raphson Method<a class="headerlink" href="#2.-Newton-Raphson-Method" title="Link to this heading"></a></h3>
+<p>The <strong>Newton-Raphson Method</strong> is an iterative method that uses the derivative of the function to approximate roots. It converges quickly but requires the function to be differentiable.</p>
+<section id="Formula:">
+<h4><strong>Formula:</strong><a class="headerlink" href="#Formula:" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]</div>
+</section>
+<section id="steps-1">
+<span id="id9"></span><h4><strong>Steps:</strong><a class="headerlink" href="#steps-1" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Choose an initial guess $ x_0 $.</p></li>
+<li><p>Compute $ x_1 = x_0 - <span class="math">\frac{f(x_0)}{f'(x_0)}</span> $.</p></li>
+<li><p>Repeat until $ |f(x_n)| $ is sufficiently small.</p></li>
+</ol>
+</section>
+<section id="advantages-1">
+<span id="id10"></span><h4><strong>Advantages:</strong><a class="headerlink" href="#advantages-1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Faster convergence compared to the Bisection Method.</p></li>
+<li><p>Works well for smooth functions.</p></li>
+</ul>
+</section>
+<section id="disadvantages-1">
+<span id="id11"></span><h4><strong>Disadvantages:</strong><a class="headerlink" href="#disadvantages-1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Requires the derivative $ f’(x) $.</p></li>
+<li><p>May fail if $ f’(x) = 0 $ or if the function is not well-behaved.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="3.-Secant-Method">
+<h3>3. Secant Method<a class="headerlink" href="#3.-Secant-Method" title="Link to this heading"></a></h3>
+<p>The <strong>Secant Method</strong> is similar to Newton-Raphson but does not require the derivative. Instead, it approximates the derivative using two points.</p>
+<section id="formula-1">
+<span id="id12"></span><h4><strong>Formula:</strong><a class="headerlink" href="#formula-1" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n - \frac{f(x_n)(x_n - x_{n-1})}{f(x_n) - f(x_{n-1})}\]</div>
+</section>
+<section id="steps-2">
+<span id="id13"></span><h4><strong>Steps:</strong><a class="headerlink" href="#steps-2" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Choose two initial guesses $ x_0 $ and $ x_1 $.</p></li>
+<li><p>Compute $ x_2 $ using the secant formula.</p></li>
+<li><p>Repeat until $ |f(x_n)| $ is sufficiently small.</p></li>
+</ol>
+</section>
+<section id="advantages-2">
+<span id="id14"></span><h4><strong>Advantages:</strong><a class="headerlink" href="#advantages-2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Faster than the Bisection Method.</p></li>
+<li><p>Does not require the derivative.</p></li>
+</ul>
+</section>
+<section id="disadvantages-2">
+<span id="id15"></span><h4><strong>Disadvantages:</strong><a class="headerlink" href="#disadvantages-2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Can fail if $ f(x_n) = f(x_{n-1}) $.</p></li>
+<li><p>May not converge as reliably as Newton-Raphson.</p></li>
+</ul>
+<p><strong>Algorithm for Finding the nth Root of a Number</strong></p>
+<p>This algorithm outlines three methods for approximating the nth root of a number A: Bisection Method, Newton-Raphson Method, and Secant Method.</p>
+<p><strong>1. Bisection Method:</strong></p>
+<ul class="simple">
+<li><p><strong>Goal:</strong> Find a root of the function f(x) = x^n - A within a given interval [a, b].</p></li>
+<li><p><strong>Assumptions:</strong> The function f(x) is continuous on the interval [a, b]. f(a) and f(b) have opposite signs (ensuring a root exists within the interval).</p></li>
+<li><p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Initialize an interval [a, b] such that the nth root of A lies within it (e.g., [0, max(1, A)]).</p></li>
+<li><p>Set a required tolerance (<code class="docutils literal notranslate"><span class="pre">required_tol</span></code>) based on the desired number of significant digits.</p></li>
+<li><p>While the width of the interval (b - a) is greater than the required tolerance:</p>
+<ol class="loweralpha simple">
+<li><p>Calculate the midpoint <code class="docutils literal notranslate"><span class="pre">mid</span> <span class="pre">=</span> <span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">/</span> <span class="pre">2</span></code>.</p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">mid^n</span> <span class="pre">-</span> <span class="pre">A</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">(mid^n</span> <span class="pre">-</span> <span class="pre">A)</span></code> and <code class="docutils literal notranslate"><span class="pre">(a^n</span> <span class="pre">-</span> <span class="pre">A)</span></code> have opposite signs, the root lies in the interval [a, mid]. Set <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">mid</span></code>.</p></li>
+<li><p>Otherwise, the root lies in the interval [mid, b]. Set <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">mid</span></code>.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">mid</span> <span class="pre">=</span> <span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">/</span> <span class="pre">2</span></code>.</p></li>
+</ol>
+</li>
+<li><p>Return the midpoint <code class="docutils literal notranslate"><span class="pre">mid</span></code> as the approximate nth root, rounded to the desired number of significant digits.</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>2. Newton-Raphson Method:</strong></p>
+<ul class="simple">
+<li><p><strong>Goal:</strong> Find a root of the function f(x) = x^n - A using an iterative approach based on the tangent line to the function.</p></li>
+<li><p><strong>Formula:</strong> <code class="docutils literal notranslate"><span class="pre">x_new</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">(x^n</span> <span class="pre">-</span> <span class="pre">A)</span> <span class="pre">/</span> <span class="pre">(n</span> <span class="pre">*</span> <span class="pre">x^(n-1))</span></code></p></li>
+<li><p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Choose an initial guess <code class="docutils literal notranslate"><span class="pre">x</span></code> for the nth root (e.g., <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">/</span> <span class="pre">n</span></code>).</p></li>
+<li><p>Set a required tolerance (<code class="docutils literal notranslate"><span class="pre">required_tol</span></code>) based on the desired number of significant digits.</p></li>
+<li><p>Enter a loop that continues indefinitely (or until a breaking condition is met).</p></li>
+<li><p>Calculate the next approximation <code class="docutils literal notranslate"><span class="pre">x_new</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">(x**n</span> <span class="pre">-</span> <span class="pre">A)</span> <span class="pre">/</span> <span class="pre">(n</span> <span class="pre">*</span> <span class="pre">x**(n</span> <span class="pre">-</span> <span class="pre">1))</span></code>.</p></li>
+<li><p>Check for convergence: If <code class="docutils literal notranslate"><span class="pre">abs(x_new</span> <span class="pre">-</span> <span class="pre">x)</span> <span class="pre">&lt;</span> <span class="pre">required_tol</span></code>, break.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x_new</span></code>.</p></li>
+<li><p>Return <code class="docutils literal notranslate"><span class="pre">x</span></code>, rounded to the desired number of significant digits.</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>3. Secant Method:</strong></p>
+<ul class="simple">
+<li><p><strong>Goal:</strong> Find a root of the function f(x) = x^n - A using an iterative approach based on the secant line through two previous points.</p></li>
+<li><p><strong>Formula:</strong> <code class="docutils literal notranslate"><span class="pre">x_new</span> <span class="pre">=</span> <span class="pre">x1</span> <span class="pre">-</span> <span class="pre">f(x1)</span> <span class="pre">*</span> <span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x0)</span> <span class="pre">/</span> <span class="pre">(f(x1)</span> <span class="pre">-</span> <span class="pre">f(x0))</span></code> where <code class="docutils literal notranslate"><span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">x^n</span> <span class="pre">-</span> <span class="pre">A</span></code>.</p></li>
+<li><p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Choose two initial guesses <code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">x1</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">*</span> <span class="pre">n)</span></code>).</p></li>
+<li><p>Set a required tolerance (<code class="docutils literal notranslate"><span class="pre">required_tol</span></code>).</p></li>
+<li><p>While <code class="docutils literal notranslate"><span class="pre">abs(x1</span> <span class="pre">-</span> <span class="pre">x0)</span> <span class="pre">&gt;</span> <span class="pre">required_tol</span></code>:</p>
+<ol class="loweralpha simple">
+<li><p>Calculate <code class="docutils literal notranslate"><span class="pre">f_x0</span> <span class="pre">=</span> <span class="pre">x0^n</span> <span class="pre">-</span> <span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">f_x1</span> <span class="pre">=</span> <span class="pre">x1^n</span> <span class="pre">-</span> <span class="pre">A</span></code>.</p></li>
+<li><p>Calculate <code class="docutils literal notranslate"><span class="pre">x_new</span> <span class="pre">=</span> <span class="pre">x1</span> <span class="pre">-</span> <span class="pre">f_x1</span> <span class="pre">*</span> <span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x0)</span> <span class="pre">/</span> <span class="pre">(f_x1</span> <span class="pre">-</span> <span class="pre">f_x0)</span></code>.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">x0</span> <span class="pre">=</span> <span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">=</span> <span class="pre">x_new</span></code>.</p></li>
+</ol>
+</li>
+<li><p>Return <code class="docutils literal notranslate"><span class="pre">x1</span></code>, rounded to the desired number of significant digits.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="Finding-the-nth-Root-of-a-Number-using-Numerical-Methods">
+<h2>Finding the nth Root of a Number using Numerical Methods<a class="headerlink" href="#Finding-the-nth-Root-of-a-Number-using-Numerical-Methods" title="Link to this heading"></a></h2>
+<section id="Problem-Statement">
+<h3>Problem Statement<a class="headerlink" href="#Problem-Statement" title="Link to this heading"></a></h3>
+<p>Given a number <code class="docutils literal notranslate"><span class="pre">A</span></code> and an integer <code class="docutils literal notranslate"><span class="pre">n</span></code>, we need to find <code class="docutils literal notranslate"><span class="pre">x</span></code> such that:</p>
+<div class="math notranslate nohighlight">
+\[x^n = A\]</div>
+<p>using numerical methods up to a specified number of significant digits.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bisection_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bisection method to approximate the nth root of A.&quot;&quot;&quot;</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">A</span><span class="p">))</span>  <span class="c1"># Initial interval</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+    <span class="n">required_tol</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">sig_digits</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mid</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">required_tol</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mid</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">mid</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">mid</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">newton_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton-Raphson method to approximate the nth root of A.&quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">A</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># Initial guess</span>
+    <span class="n">required_tol</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">sig_digits</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">x_new</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">required_tol</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x_new</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">secant_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Secant method to approximate the nth root of A.&quot;&quot;&quot;</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">A</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">A</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># Initial guesses</span>
+    <span class="n">required_tol</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">sig_digits</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">required_tol</span><span class="p">:</span>
+        <span class="n">f_x0</span> <span class="o">=</span> <span class="n">x0</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span>
+        <span class="n">f_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">A</span>
+        <span class="n">x_new</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">f_x1</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f_x1</span> <span class="o">-</span> <span class="n">f_x0</span><span class="p">)</span>
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x_new</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Example:-Compute-Cube-Root-of-27">
+<h3>Example: Compute Cube Root of 27<a class="headerlink" href="#Example:-Compute-Cube-Root-of-27" title="Link to this heading"></a></h3>
+<p>Let’s compute $ <span class="math">\sqrt[3]{27}</span> $ using all three methods with five significant digits.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Example Usage</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">27</span>  <span class="c1"># Find cube root of 27</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">sig_digits</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bisection Method:&quot;</span><span class="p">,</span> <span class="n">bisection_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Newton-Raphson Method:&quot;</span><span class="p">,</span> <span class="n">newton_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secant Method:&quot;</span><span class="p">,</span> <span class="n">secant_nth_root</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">sig_digits</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Bisection Method: 3.0
+Newton-Raphson Method: 3.0
+Secant Method: 3.0
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B%23ElectricalCircuitEquation.html" class="btn btn-neutral float-left" title="Solving Set of Mesh Equation of an Electrical Circuit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="D%23Transcendental.html" class="btn btn-neutral float-right" title="Transcendental Equations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dr. Subir Sarkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legendre Polynomials &mdash; 4th Sem Lab Computational Physics  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions" href="I%23DiracDeltaFunction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            4th Sem Lab Computational Physics
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A%23CoupledSpringMass.html">Coupled Spring-Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B%23ElectricalCircuitEquation.html">Solving Set of Mesh Equation of an Electrical Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%23nthRoot.html">nth Root of an equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D%23Transcendental.html">Transcendental Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E%23SinkingDepth.html">Sinking Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="F%23NumericalIntegration.html">Numerical Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G%23FourierSeriesSawToothWave.html">Fourier Series Analysis - Saw Tooth Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="H%23FourierSeriesSquareWave.html">Fourier Series Analysis - Square Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="I%23DiracDeltaFunction.html">Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Legendre Polynomials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Derivation-of-Legendre-Polynomials">Derivation of Legendre Polynomials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Series-Solution-Method">1. <strong>Series Solution Method</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Recurrence-Relation-Method">2. <strong>Recurrence Relation Method</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Alternate-Recurrence-Relation"><strong>Alternate Recurrence Relation</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Derivation-of-This-Recurrence-Relation"><strong>Derivation of This Recurrence Relation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Properties-of-Legendre-Polynomials">Properties of Legendre Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Applications-of-Legendre-Polynomials">Applications of Legendre Polynomials</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">4th Sem Lab Computational Physics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Legendre Polynomials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/LabManual4thSemCoreSphinx/J" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Legendre-Polynomials">
+<h1>Legendre Polynomials<a class="headerlink" href="#Legendre-Polynomials" title="Link to this heading"></a></h1>
+<p>Legendre polynomials, $ P_n(x) $, are a sequence of orthogonal polynomials that are solutions to the <strong>Legendre differential equation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[(1 - x^2) \frac{d^2 P_n(x)}{dx^2} - 2x \frac{d P_n(x)}{dx} + n(n + 1) P_n(x) = 0\]</div>
+<p>where $ n $ is a non-negative integer, and $ P_n(x) $ represents the nth Legendre polynomial. These polynomials are used extensively in physics and engineering, particularly in solving problems that exhibit spherical symmetry, such as potential theory and quantum mechanics.</p>
+<section id="Derivation-of-Legendre-Polynomials">
+<h2>Derivation of Legendre Polynomials<a class="headerlink" href="#Derivation-of-Legendre-Polynomials" title="Link to this heading"></a></h2>
+<p>Legendre polynomials can be derived using several methods, such as <strong>series solutions</strong> or <strong>recurrence relations</strong>. Below are the two main methods of obtaining these polynomials:</p>
+<section id="1.-Series-Solution-Method">
+<h3>1. <strong>Series Solution Method</strong><a class="headerlink" href="#1.-Series-Solution-Method" title="Link to this heading"></a></h3>
+<p>To derive Legendre polynomials, we begin by solving the Legendre differential equation using a power series expansion. The general solution can be written as a power series around $ x = 0 $:</p>
+<div class="math notranslate nohighlight">
+\[P_n(x) = \sum_{k=0}^{\infty} a_k x^k\]</div>
+<p>Substituting this series into the Legendre differential equation and solving for the coefficients ($ a_k $ results in a series that converges for $ |x| <span class="math">\leq 1</span> $. This method leads to the explicit expression for Legendre polynomials for low values of $ n $.</p>
+<p>For example, for the first few polynomials:</p>
+<ul class="simple">
+<li><p>$ P_0(x) = 1 $</p></li>
+<li><p>$ P_1(x) = x $</p></li>
+<li><p>$ P_2(x) = <span class="math">\frac{1}{2}</span> (3x^2 - 1) $</p></li>
+<li><p>$ P_3(x) = <span class="math">\frac{1}{2}</span> (5x^3 - 3x) $</p></li>
+</ul>
+</section>
+<section id="2.-Recurrence-Relation-Method">
+<h3>2. <strong>Recurrence Relation Method</strong><a class="headerlink" href="#2.-Recurrence-Relation-Method" title="Link to this heading"></a></h3>
+<p>Another method for obtaining Legendre polynomials is through a <strong>recurrence relation</strong>. Starting with known values for $ P_0(x) $ and $ P_1(x) $, the following recurrence relation can be used to compute higher-order polynomials:</p>
+<div class="math notranslate nohighlight">
+\[(n+1) P_{n+1}(x) = (2n+1) x P_n(x) - n P_{n-1}(x)\]</div>
+<p>with the initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[P_0(x) = 1, \quad P_1(x) = x\]</div>
+<p>Using this recurrence, we can generate higher-order Legendre polynomials:</p>
+<ul class="simple">
+<li><p>For $ n = 2 $, $ P_2(x) = <span class="math">\frac{1}{2}</span> (3x^2 - 1) $</p></li>
+<li><p>For $ n = 3 $, $ P_3(x) = <span class="math">\frac{1}{2}</span> (5x^3 - 3x) $</p></li>
+<li><p>For $ n = 4 $, $ P_4(x) = <span class="math">\frac{1}{8}</span> (35x^4 - 30x^2 + 3) $</p></li>
+</ul>
+<p>This recurrence relation provides a straightforward method to generate Legendre polynomials of any degree.</p>
+</section>
+<section id="Alternate-Recurrence-Relation">
+<h3><strong>Alternate Recurrence Relation</strong><a class="headerlink" href="#Alternate-Recurrence-Relation" title="Link to this heading"></a></h3>
+<p>Another form of the recurrence relation for Legendre polynomials is:</p>
+<div class="math notranslate nohighlight">
+\[P_l(x) = \frac{(2l - 1) x P_{l-1}(x) - (l - 1) P_{l-2}(x)}{l}\]</div>
+<section id="Derivation-of-This-Recurrence-Relation">
+<h4><strong>Derivation of This Recurrence Relation</strong><a class="headerlink" href="#Derivation-of-This-Recurrence-Relation" title="Link to this heading"></a></h4>
+<p>This recurrence relation can be derived directly from the <strong>Legendre differential equation</strong>. To understand its origin, consider the standard recurrence relation for Legendre polynomials:</p>
+<div class="math notranslate nohighlight">
+\[(n + 1) P_{n+1}(x) = (2n + 1) x P_n(x) - n P_{n-1}(x)\]</div>
+<p>By changing the index from ( n ) to ( l ), we obtain:</p>
+<div class="math notranslate nohighlight">
+\[l P_l(x) = (2l - 1) x P_{l-1}(x) - (l - 1) P_{l-2}(x)\]</div>
+<p>Dividing both sides of the equation by $ (l) $, we get:</p>
+<div class="math notranslate nohighlight">
+\[P_l(x) = \frac{(2l - 1) x P_{l-1}(x) - (l - 1) P_{l-2}(x)}{l}\]</div>
+<p>This is the recurrence relation you provided. It expresses $ P_l(x) $ in terms of the two previous polynomials, $ P_{l-1}(x) $ and $P_{l-2}(x) $, and is helpful for computing higher-order Legendre polynomials when the lower-order ones are known.</p>
+</section>
+</section>
+</section>
+<section id="Properties-of-Legendre-Polynomials">
+<h2>Properties of Legendre Polynomials<a class="headerlink" href="#Properties-of-Legendre-Polynomials" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Orthogonality</strong>: The Legendre polynomials are orthogonal with respect to the weight function $ w(x) = 1 $ over the interval $ [-1, 1] $. Specifically, for any two different Legendre polynomials $ P_n(x) $ and $ P_m(x) $, the following orthogonality condition holds:</p>
+<div class="math notranslate nohighlight">
+\[\int_{-1}^{1} P_n(x) P_m(x) \, dx = 0 \quad \text{for} \quad n \neq m\]</div>
+<p>For $ n = m $, the integral is given by:</p>
+<div class="math notranslate nohighlight">
+\[\int_{-1}^{1} P_n(x)^2 \, dx = \frac{2}{2n + 1}\]</div>
+</li>
+<li><p><strong>Recurrence Relations</strong>: As mentioned, Legendre polynomials satisfy a recurrence relation, which is useful for calculating higher-degree polynomials from lower-degree ones.</p></li>
+<li><p><strong>Symmetry</strong>: Legendre polynomials exhibit symmetry properties. Specifically, $ P_n(-x) = (-1)^n P_n(x) $, meaning that they are either even or odd functions, depending on the degree $ n $.</p></li>
+<li><p><strong>Normalizability</strong>: The Legendre polynomials can be normalized so that they are orthonormal, i.e., the integral of their square is 1. This is done by dividing each polynomial by $ <span class="math">\sqrt{\frac{2}{2n+1}}</span> $.</p></li>
+</ol>
+</section>
+<section id="Applications-of-Legendre-Polynomials">
+<h2>Applications of Legendre Polynomials<a class="headerlink" href="#Applications-of-Legendre-Polynomials" title="Link to this heading"></a></h2>
+<p>Legendre polynomials are widely used in various fields of physics and mathematics. Some of their main applications include:</p>
+<ol class="arabic simple">
+<li><p><strong>Potential Theory</strong>: In solving Laplace’s equation in spherical coordinates, Legendre polynomials are used to expand the solution in terms of spherical harmonics.</p></li>
+<li><p><strong>Quantum Mechanics</strong>: Legendre polynomials appear in the solutions of the Schrödinger equation for spherically symmetric potentials, such as in the hydrogen atom.</p></li>
+<li><p><strong>Numerical Methods</strong>: Legendre polynomials are used in <strong>Gaussian quadrature</strong> for numerical integration, where the roots of the Legendre polynomials serve as optimal sampling points.</p></li>
+<li><p><strong>Electromagnetic Theory</strong>: In electrostatics and electromagnetics, Legendre polynomials are used in the expansion of the electric potential and field in spherical coordinates.</p></li>
+</ol>
+<p>In conclusion, Legendre polynomials are essential mathematical tools with significant applications in physics and engineering. They are obtained through either a power series solution to their defining differential equation or using recurrence relations. Their orthogonality and other properties make them invaluable for expanding functions and solving physical problems in spherical geometries.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">legendre</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">legendre</span><span class="p">(</span><span class="n">n</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LabManual4thSemCoreSphinx_J%23LegendrePoly_2_0.png" src="../_images/LabManual4thSemCoreSphinx_J%23LegendrePoly_2_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">inner_product</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+    <span class="n">P_m</span> <span class="o">=</span> <span class="n">legendre</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">P_n</span> <span class="o">=</span> <span class="n">legendre</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">P_m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">P_n</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">inner_product</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">val_expect</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">P_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">val_expect</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+P_0P_0 = 2.0 2.0
+P_1P_1 = 0.6666666666666666 0.6666666666666666
+P_2P_2 = 0.4 0.4
+P_3P_3 = 0.28571428571428575 0.2857142857142857
+P_4P_4 = 0.22222222222222224 0.2222222222222222
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">legendre</span>
+
+<span class="c1"># Function to verify normalization condition of Legendre polynomials</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_normalization</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Get the Legendre polynomial of degree n using scipy&#39;s legendre function</span>
+    <span class="n">Pn</span> <span class="o">=</span> <span class="n">legendre</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Define the integrand (P_n(x))^2</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Pn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="c1"># Perform the numerical integration over the interval [-1, 1]</span>
+    <span class="n">result</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Expected normalization constant for Legendre polynomial of degree n</span>
+    <span class="n">expected_normalization</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computed integral for P_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">(x)^2 over [-1, 1]: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected normalization value: </span><span class="si">{</span><span class="n">expected_normalization</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check if the computed result is close to the expected normalization</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected_normalization</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">(x) is correctly normalized!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">(x) is NOT correctly normalized!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Test for a specific degree n</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Example for degree 3</span>
+<span class="n">verify_normalization</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Computed integral for P_3(x)^2 over [-1, 1]: 0.28571428571428575
+Expected normalization value: 0.2857142857142857
+P_3(x) is correctly normalized!
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="I%23DiracDeltaFunction.html" class="btn btn-neutral float-left" title="Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dr. Subir Sarkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

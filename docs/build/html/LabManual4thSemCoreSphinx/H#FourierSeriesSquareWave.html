@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fourier Series Analysis - Square Wave &mdash; 4th Sem Lab Computational Physics  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions" href="I%23DiracDeltaFunction.html" />
+    <link rel="prev" title="Fourier Series Analysis - Saw Tooth Wave" href="G%23FourierSeriesSawToothWave.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            4th Sem Lab Computational Physics
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A%23CoupledSpringMass.html">Coupled Spring-Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B%23ElectricalCircuitEquation.html">Solving Set of Mesh Equation of an Electrical Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%23nthRoot.html">nth Root of an equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D%23Transcendental.html">Transcendental Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E%23SinkingDepth.html">Sinking Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="F%23NumericalIntegration.html">Numerical Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G%23FourierSeriesSawToothWave.html">Fourier Series Analysis - Saw Tooth Wave</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fourier Series Analysis - Square Wave</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Algorithm:-Fourier-Series-for-a-Square-Wave">Algorithm: Fourier Series for a Square Wave</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Step-1:-Import-Libraries"><strong>Step 1: Import Libraries</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-2:-Initialize-Constants"><strong>Step 2: Initialize Constants</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-3:-Loop-Over-Odd-Harmonic-Counts"><strong>Step 3: Loop Over Odd Harmonic Counts</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-4:-Generate-Values"><strong>Step 4: Generate Values</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-5:-Compute-Fourier-Series-Sum"><strong>Step 5: Compute Fourier Series Sum</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-6:-Plot-the-Result"><strong>Step 6: Plot the Result</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-7:-Format-the-Plot"><strong>Step 7: Format the Plot</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-8:-Display-the-Plot"><strong>Step 8: Display the Plot</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Output:">Output:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="I%23DiracDeltaFunction.html">Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J%23LegendrePoly.html">Legendre Polynomials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">4th Sem Lab Computational Physics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fourier Series Analysis - Square Wave</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/LabManual4thSemCoreSphinx/H" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Fourier-Series-Analysis---Square-Wave">
+<h1>Fourier Series Analysis - Square Wave<a class="headerlink" href="#Fourier-Series-Analysis---Square-Wave" title="Link to this heading"></a></h1>
+<p>Fourier series for a square wave function:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{4k}{\pi}\sum_{n \to \text{odd}}\frac{1}{n}\sin nx\]</div>
+<section id="Algorithm:-Fourier-Series-for-a-Square-Wave">
+<h2>Algorithm: Fourier Series for a Square Wave<a class="headerlink" href="#Algorithm:-Fourier-Series-for-a-Square-Wave" title="Link to this heading"></a></h2>
+<p>This algorithm visualizes the Fourier series approximation of a <strong>square wave</strong> function using Python.</p>
+<hr class="docutils" />
+<section id="Step-1:-Import-Libraries">
+<h3><strong>Step 1: Import Libraries</strong><a class="headerlink" href="#Step-1:-Import-Libraries" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for numerical operations.</p></li>
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> for plotting.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-2:-Initialize-Constants">
+<h3><strong>Step 2: Initialize Constants</strong><a class="headerlink" href="#Step-2:-Initialize-Constants" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Set amplitude constant <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> to represent π.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-3:-Loop-Over-Odd-Harmonic-Counts">
+<h3><strong>Step 3: Loop Over Odd Harmonic Counts</strong><a class="headerlink" href="#Step-3:-Loop-Over-Odd-Harmonic-Counts" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Loop through odd values of <code class="docutils literal notranslate"><span class="pre">m</span></code> from 3 to 7 (inclusive) with a step of 2.</p>
+<ul>
+<li><p>These represent the number of Fourier terms used in each approximation.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-4:-Generate-Values">
+<h3><strong>Step 4: Generate Values</strong><a class="headerlink" href="#Step-4:-Generate-Values" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For each <code class="docutils literal notranslate"><span class="pre">m</span></code>:</p>
+<ul>
+<li><p>Create 100 evenly spaced <code class="docutils literal notranslate"><span class="pre">x</span></code> values from <code class="docutils literal notranslate"><span class="pre">-π</span></code> to <code class="docutils literal notranslate"><span class="pre">π</span></code>.</p></li>
+<li><p>Generate array <code class="docutils literal notranslate"><span class="pre">n</span></code> containing odd numbers from 1 up to <code class="docutils literal notranslate"><span class="pre">m</span></code> (exclusive), reshaped for broadcasting.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-5:-Compute-Fourier-Series-Sum">
+<h3><strong>Step 5: Compute Fourier Series Sum</strong><a class="headerlink" href="#Step-5:-Compute-Fourier-Series-Sum" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Use the formula:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{4k}{\pi} \sum_{n=1,3,5,\ldots}^{m} \frac{1}{n} \sin(nx)\]</div>
+</li>
+<li><p>Perform the calculation using broadcasting:</p>
+<ul class="simple">
+<li><p>Multiply <code class="docutils literal notranslate"><span class="pre">x</span></code> values with each <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, divide by <code class="docutils literal notranslate"><span class="pre">n</span></code>, and sum across all terms.</p></li>
+<li><p>Multiply the result by <code class="docutils literal notranslate"><span class="pre">(4k/π)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-6:-Plot-the-Result">
+<h3><strong>Step 6: Plot the Result</strong><a class="headerlink" href="#Step-6:-Plot-the-Result" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Plot the calculated Fourier series for each <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p></li>
+<li><p>Label each line with its corresponding <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-7:-Format-the-Plot">
+<h3><strong>Step 7: Format the Plot</strong><a class="headerlink" href="#Step-7:-Format-the-Plot" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add axis labels: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>.</p></li>
+<li><p>Add a title: <strong>“Fourier Series Analysis of Square Wave”</strong>.</p></li>
+<li><p>Show a legend for clarity.</p></li>
+<li><p>Add grid lines for better visualization.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Step-8:-Display-the-Plot">
+<h3><strong>Step 8: Display the Plot</strong><a class="headerlink" href="#Step-8:-Display-the-Plot" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to render the plot.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Output:">
+<h3>Output:<a class="headerlink" href="#Output:" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Multiple curves showing how the square wave approximation improves as more Fourier terms are added.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">xrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span><span class="n">xrange</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">];</span><span class="n">n</span>
+
+    <span class="n">fsum</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xrange</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">fsum</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;m = </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;f(x)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fourier Series Analysis of Square Wave&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LabManual4thSemCoreSphinx_H%23FourierSeriesSquareWave_3_0.png" src="../_images/LabManual4thSemCoreSphinx_H%23FourierSeriesSquareWave_3_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">xrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Create an array for m values (3, 5, 7)</span>
+<span class="n">m_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="c1"># Shape (3,1) for broadcasting</span>
+
+<span class="c1"># Create an array for n values for each m</span>
+<span class="n">n_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">m_values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+
+<span class="c1"># Compute fsum for all m_values at once</span>
+<span class="n">fsum_list</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">k</span> <span class="o">/</span> <span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xrange</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_values</span><span class="p">]</span>
+
+<span class="c1"># Plot all the curves at once</span>
+<span class="k">for</span> <span class="n">fsum</span> <span class="ow">in</span> <span class="n">fsum_list</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">fsum</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;m = </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;f(x)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fourier Series Analysis of Square Wave&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LabManual4thSemCoreSphinx_H%23FourierSeriesSquareWave_4_0.png" src="../_images/LabManual4thSemCoreSphinx_H%23FourierSeriesSquareWave_4_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="G%23FourierSeriesSawToothWave.html" class="btn btn-neutral float-left" title="Fourier Series Analysis - Saw Tooth Wave" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="I%23DiracDeltaFunction.html" class="btn btn-neutral float-right" title="Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dr. Subir Sarkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

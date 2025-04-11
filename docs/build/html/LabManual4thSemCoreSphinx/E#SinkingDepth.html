@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinking Depth &mdash; 4th Sem Lab Computational Physics  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numerical Integration" href="F%23NumericalIntegration.html" />
+    <link rel="prev" title="Transcendental Equations" href="D%23Transcendental.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            4th Sem Lab Computational Physics
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A%23CoupledSpringMass.html">Coupled Spring-Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B%23ElectricalCircuitEquation.html">Solving Set of Mesh Equation of an Electrical Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%23nthRoot.html">nth Root of an equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D%23Transcendental.html">Transcendental Equations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sinking Depth</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Theory:-Sinking-Depth-of-a-Spherical-Object-in-a-Fluid">Theory: Sinking Depth of a Spherical Object in a Fluid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Introduction"><strong>Introduction</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Forces-Acting-on-the-Sphere"><strong>Forces Acting on the Sphere</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Equilibrium-Condition"><strong>Equilibrium Condition</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Numerical-Solution"><strong>Numerical Solution</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Bisection-Method">Bisection Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Newton-Raphson-Method">Newton Raphson Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sectant-Method">Sectant Method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="F%23NumericalIntegration.html">Numerical Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G%23FourierSeriesSawToothWave.html">Fourier Series Analysis - Saw Tooth Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="H%23FourierSeriesSquareWave.html">Fourier Series Analysis - Square Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="I%23DiracDeltaFunction.html">Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J%23LegendrePoly.html">Legendre Polynomials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">4th Sem Lab Computational Physics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sinking Depth</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/LabManual4thSemCoreSphinx/E" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Sinking-Depth">
+<h1>Sinking Depth<a class="headerlink" href="#Sinking-Depth" title="Link to this heading"></a></h1>
+<section id="Theory:-Sinking-Depth-of-a-Spherical-Object-in-a-Fluid">
+<h2>Theory: Sinking Depth of a Spherical Object in a Fluid<a class="headerlink" href="#Theory:-Sinking-Depth-of-a-Spherical-Object-in-a-Fluid" title="Link to this heading"></a></h2>
+<section id="Introduction">
+<h3><strong>Introduction</strong><a class="headerlink" href="#Introduction" title="Link to this heading"></a></h3>
+<p>When a homogeneous spherical object of radius $ R $ and density $ <span class="math">\rho</span>_s $ is placed in a fluid of density $ <span class="math">\rho</span>_f $, it sinks until the buoyant force balances its weight. The goal is to determine the depth $ h $ to which the sphere submerges.</p>
+</section>
+<section id="Forces-Acting-on-the-Sphere">
+<h3><strong>Forces Acting on the Sphere</strong><a class="headerlink" href="#Forces-Acting-on-the-Sphere" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Gravitational Force (Weight of the Sphere)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[W = m g = \rho_s V_s g\]</div>
+<p>where $ V_s = <span class="math">\frac{4}{3}</span> :nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>pi <a href="#id3"><span class="problematic" id="id4">`</span></a>R^3 $ is the total volume of the sphere.</p>
+</li>
+<li><p><strong>Buoyant Force (Archimedes’ Principle)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[B = \rho_f V_f g\]</div>
+<p>where $ V_f(h) $ is the volume of the sphere submerged in the fluid, given by:</p>
+<div class="math notranslate nohighlight">
+\[V_f(h) = \frac{\pi h^2 (3R - h)}{3}\]</div>
+</li>
+</ol>
+</section>
+<section id="Equilibrium-Condition">
+<h3><strong>Equilibrium Condition</strong><a class="headerlink" href="#Equilibrium-Condition" title="Link to this heading"></a></h3>
+<p>At equilibrium, the forces balance:</p>
+<div class="math notranslate nohighlight">
+\[B = W\]</div>
+<p>Expanding:</p>
+<div class="math notranslate nohighlight">
+\[\rho_f \cdot V_f(h) \cdot g = \rho_s \cdot V_s \cdot g\]</div>
+<p>Canceling $ g $:</p>
+<div class="math notranslate nohighlight">
+\[\rho_f V_f(h) = \rho_s V_s\]</div>
+<p>Substituting the volume expressions:</p>
+<div class="math notranslate nohighlight">
+\[\rho_f \frac{\pi h^2 (3R - h)}{3} = \rho_s \frac{4}{3} \pi R^3\]</div>
+<p>Simplifying:</p>
+<div class="math notranslate nohighlight">
+\[\rho_f h^2 (3R - h) = 4 \rho_s R^3\]</div>
+</section>
+<section id="Numerical-Solution">
+<h3><strong>Numerical Solution</strong><a class="headerlink" href="#Numerical-Solution" title="Link to this heading"></a></h3>
+<p>Since this equation is nonlinear, it is solved using a numerical root-finding technique such as the Newton-Raphson method or bisection method.</p>
+</section>
+<section id="Bisection-Method">
+<h3>Bisection Method<a class="headerlink" href="#Bisection-Method" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho_f</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">R</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">rho_s</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bisection_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Function must have opposite signs at a and b&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">or</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">c</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Return the midpoint if max iterations reached</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">h</span><span class="p">:</span> <span class="n">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bisection_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">)</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">0.5</span>        <span class="c1"># Radius of the sphere (meters)</span>
+<span class="n">rho_s</span> <span class="o">=</span> <span class="mi">800</span>    <span class="c1"># Density of the sphere (kg/m^3)</span>
+<span class="n">rho_f</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># Density of the fluid (kg/m^3)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sphere sinks to a depth of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> meters.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The sphere sinks to a depth of 0.7129 meters.
+</pre></div></div>
+</div>
+</section>
+<section id="Newton-Raphson-Method">
+<h3>Newton Raphson Method<a class="headerlink" href="#Newton-Raphson-Method" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho_f</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">R</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">rho_s</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">submerged_volume_derivative</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho_f</span> <span class="o">*</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">h</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Derivative of the function</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">newton_raphson_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">dfx</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span>
+        <span class="k">if</span> <span class="n">dfx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Derivative is zero. Newton-Raphson method fails.&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">-=</span> <span class="n">fx</span> <span class="o">/</span> <span class="n">dfx</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">h</span><span class="p">:</span> <span class="n">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">h</span><span class="p">:</span> <span class="n">submerged_volume_derivative</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newton_raphson_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">0.5</span>        <span class="c1"># Radius of the sphere (meters)</span>
+<span class="n">rho_s</span> <span class="o">=</span> <span class="mi">800</span>    <span class="c1"># Density of the sphere (kg/m^3)</span>
+<span class="n">rho_f</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># Density of the fluid (kg/m^3)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sphere sinks to a depth of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> meters.&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The sphere sinks to a depth of 0.7129 meters.
+</pre></div></div>
+</div>
+</section>
+<section id="Sectant-Method">
+<h3>Sectant Method<a class="headerlink" href="#Sectant-Method" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho_f</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">R</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">rho_s</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">secant_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">f_x0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+        <span class="n">f_x1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f_x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x1</span>
+        <span class="k">if</span> <span class="n">f_x1</span> <span class="o">-</span> <span class="n">f_x0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Zero denominator in secant method.&quot;</span><span class="p">)</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">f_x1</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f_x1</span> <span class="o">-</span> <span class="n">f_x0</span><span class="p">)</span>
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+    <span class="k">return</span> <span class="n">x1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">h</span><span class="p">:</span> <span class="n">submerged_volume_eq</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">secant_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">)</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">0.5</span>        <span class="c1"># Radius of the sphere (meters)</span>
+<span class="n">rho_s</span> <span class="o">=</span> <span class="mi">800</span>    <span class="c1"># Density of the sphere (kg/m^3)</span>
+<span class="n">rho_f</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># Density of the fluid (kg/m^3)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">find_sinking_depth</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rho_s</span><span class="p">,</span> <span class="n">rho_f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sphere sinks to a depth of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> meters.&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The sphere sinks to a depth of 0.7129 meters.
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="D%23Transcendental.html" class="btn btn-neutral float-left" title="Transcendental Equations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="F%23NumericalIntegration.html" class="btn btn-neutral float-right" title="Numerical Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dr. Subir Sarkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

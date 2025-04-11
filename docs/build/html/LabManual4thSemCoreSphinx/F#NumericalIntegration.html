@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numerical Integration &mdash; 4th Sem Lab Computational Physics  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fourier Series Analysis - Saw Tooth Wave" href="G%23FourierSeriesSawToothWave.html" />
+    <link rel="prev" title="Sinking Depth" href="E%23SinkingDepth.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            4th Sem Lab Computational Physics
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A%23CoupledSpringMass.html">Coupled Spring-Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B%23ElectricalCircuitEquation.html">Solving Set of Mesh Equation of an Electrical Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%23nthRoot.html">nth Root of an equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D%23Transcendental.html">Transcendental Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E%23SinkingDepth.html">Sinking Depth</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Numerical Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Trapezoidal-rule">Trapezoidal rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Simpson's-1/3rd-rule">Simpson’s 1/3rd rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Algorithm:-Numerical-Integration-using-Trapezoidal-and-Simpson’s-Rule">Algorithm: Numerical Integration using Trapezoidal and Simpson’s Rule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Algorithm-Overview">Algorithm Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Trapezoidal-Rule-Algorithm">Trapezoidal Rule Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Simpson’s-1/3-Rule-Algorithm">Simpson’s 1/3 Rule Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Evaluate:">Evaluate:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Evaluate">Evaluate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="G%23FourierSeriesSawToothWave.html">Fourier Series Analysis - Saw Tooth Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="H%23FourierSeriesSquareWave.html">Fourier Series Analysis - Square Wave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="I%23DiracDeltaFunction.html">Verification of Dirac Delta Function Properties using Gaussian and Rectangular Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J%23LegendrePoly.html">Legendre Polynomials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">4th Sem Lab Computational Physics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Numerical Integration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/LabManual4thSemCoreSphinx/F" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Numerical-Integration">
+<h1>Numerical Integration<a class="headerlink" href="#Numerical-Integration" title="Link to this heading"></a></h1>
+<section id="Trapezoidal-rule">
+<h2>Trapezoidal rule<a class="headerlink" href="#Trapezoidal-rule" title="Link to this heading"></a></h2>
+<p>This rule is used to find the approximate value of a definite integral. In trapezoidal rule, the region under the curve of a given function is considered to be a trapezoid and the area under the curve is calculated. It follows that <span class="math">\begin{equation}
+\int_{a}^{b}f(x)dx \approx (b-a)\left[\frac{f(a)+f(b)}{2}\right]
+\end{equation}</span> For more accurate result, the domain of the graph is divided into <span class="math notranslate nohighlight">\(n\)</span> segments of equal size so that grid spacing or segment size is <span class="math notranslate nohighlight">\(h=\frac{b-a}{n}\)</span>. Therefore the approximate value of the integral can be written as <span class="math">\begin{equation}
+\int_{a}^{b}f(x)dx = \frac{(b-a)}{2n}\left[f(a)+2\sum_{i=1}^{n-1}f(a+ih)+f(b)\right]
+\end{equation}</span></p>
+</section>
+<section id="Simpson's-1/3rd-rule">
+<h2>Simpson’s 1/3rd rule<a class="headerlink" href="#Simpson's-1/3rd-rule" title="Link to this heading"></a></h2>
+<p><span class="math">\begin{align}
+&I(a,b)==\frac{1}{3}h\left[f(a) + f(b) + 4\sum_{k = 1\dots N-1}f(a+kh) + 2\sum_{k =2 \dots N-2}f(a+kh) \right]\\
+&h=\frac{(b-a)}{N}
+\end{align}</span></p>
+</section>
+<section id="Algorithm:-Numerical-Integration-using-Trapezoidal-and-Simpson’s-Rule">
+<h2>Algorithm: Numerical Integration using Trapezoidal and Simpson’s Rule<a class="headerlink" href="#Algorithm:-Numerical-Integration-using-Trapezoidal-and-Simpson’s-Rule" title="Link to this heading"></a></h2>
+<hr class="docutils" />
+<section id="Algorithm-Overview">
+<h3>Algorithm Overview<a class="headerlink" href="#Algorithm-Overview" title="Link to this heading"></a></h3>
+<p>We will approximate definite integrals of a given function <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> over the interval <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> using:</p>
+<ul class="simple">
+<li><p>Trapezoidal Rule</p></li>
+<li><p>Simpson’s 1/3 Rule</p></li>
+</ul>
+<p>We test the integration on two types of functions:</p>
+<ol class="arabic simple">
+<li><p>A rational function: $ f(x) = <span class="math">\frac{1}{1 + x^2}</span> $</p></li>
+<li><p>A Gaussian-like function multiplied by a linear term</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Trapezoidal-Rule-Algorithm">
+<h3>Trapezoidal Rule Algorithm<a class="headerlink" href="#Trapezoidal-Rule-Algorithm" title="Link to this heading"></a></h3>
+<p><strong>Input:</strong></p>
+<ul class="simple">
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">f</span></code></p></li>
+<li><p>Interval <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code></p></li>
+<li><p>Number of subintervals <code class="docutils literal notranslate"><span class="pre">N</span></code></p></li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p>Compute step size: ( h = <span class="math">\frac{b - a}{N}</span> )</p></li>
+<li><p>Generate <code class="docutils literal notranslate"><span class="pre">N+1</span></code> equally spaced <code class="docutils literal notranslate"><span class="pre">x</span></code> values in <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> at all points</p></li>
+<li><p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[I = h \left[ \frac{f(x_0) + f(x_N)}{2} + \sum_{i=1}^{N-1} f(x_i) \right]\]</div>
+</li>
+<li><p>Return the integral <code class="docutils literal notranslate"><span class="pre">I</span></code></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Simpson’s-1/3-Rule-Algorithm">
+<h3>Simpson’s 1/3 Rule Algorithm<a class="headerlink" href="#Simpson’s-1/3-Rule-Algorithm" title="Link to this heading"></a></h3>
+<p><strong>Input:</strong></p>
+<ul class="simple">
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">f</span></code></p></li>
+<li><p>Interval <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code></p></li>
+<li><p>Number of subintervals <code class="docutils literal notranslate"><span class="pre">N</span></code> (must be even)</p></li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is odd, increment it by 1 to make it even</p></li>
+<li><p>Compute step size: ( h = <span class="math">\frac{b - a}{N}</span> )</p></li>
+<li><p>Generate <code class="docutils literal notranslate"><span class="pre">N+1</span></code> equally spaced <code class="docutils literal notranslate"><span class="pre">x</span></code> values in <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> at all points</p></li>
+<li><p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[I = \frac{h}{3} \left[ f(x_0) + f(x_N) + 4\sum_{\text{odd } i} f(x_i) + 2\sum_{\text{even } i} f(x_i) \right]\]</div>
+</li>
+<li><p>Return the integral <code class="docutils literal notranslate"><span class="pre">I</span></code></p></li>
+</ol>
+<hr class="docutils" />
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining function to evaluate  by Trapezoidal Rule</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">trapzInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">h</span>
+    <span class="k">return</span> <span class="n">I</span>
+
+<span class="c1"># Defining function to evaluate  by Simpson&#39;s 1/3rd Rule</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">N</span><span class="o">%</span><span class="k">2</span> == 1:
+        <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]))</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">I</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Evaluate:">
+<h3>Evaluate:<a class="headerlink" href="#Evaluate:" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[\int_{-\infty}^{\infty}\frac{1}{1+x^2}dx\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">N</span>    <span class="o">=</span> <span class="mi">100</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">trapzInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of the integral by Trapezoidal rule = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">simp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of the integral by Simpson&#39;s 1/3rd rule = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The value of the integral by Trapezoidal rule = 2.942
+The value of the integral by Simpson&#39;s 1/3rd rule = 2.942
+</pre></div></div>
+</div>
+</section>
+<section id="Evaluate">
+<h3>Evaluate<a class="headerlink" href="#Evaluate" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sqrt{2\pi \sigma^2}}\int_{-\infty}^{\infty}\exp\left(-\frac{(x - 2)^2}{2\sigma^2}\right)(x + 3) dx\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">int</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">N</span>    <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">h</span>    <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+
+<span class="n">value_trapz</span> <span class="o">=</span> <span class="n">trapzInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">value_simp</span> <span class="o">=</span> <span class="n">simp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of the integral by Trapezoidal rule = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">value_trapz</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of the integral by Simpson&#39;s 1/3rd rule = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">value_simp</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The value of the integral by Trapezoidal rule = 5.0
+The value of the integral by Simpson&#39;s 1/3rd rule = 5.0
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="E%23SinkingDepth.html" class="btn btn-neutral float-left" title="Sinking Depth" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="G%23FourierSeriesSawToothWave.html" class="btn btn-neutral float-right" title="Fourier Series Analysis - Saw Tooth Wave" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dr. Subir Sarkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
