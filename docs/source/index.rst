@@ -6,10 +6,7 @@
 4th Sem Lab Computational Physics documentation
 ===============================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+This course introduces learners to the fundamentals of numerical computation using Python. The primary goal is to develop a solid understanding of how to perform numerical interpolation and integration techniques. Students will also gain hands-on experience by writing Python code to implement these methods, helping bridge theoretical concepts with practical application.
 
 .. toctree::
    :maxdepth: 1
