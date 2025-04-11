@@ -12,11 +12,17 @@ author = 'Dr. Subir Sarkar'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+import sphinx_rtd_theme
 
 extensions = [
+    'sphinx_rtd_theme',
     'nbsphinx',
-    'sphinx_rtd_theme',  # optional
+    'sphinx.ext.mathjax',
+    'sphinx.ext.autodoc',
 ]
+
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 
 templates_path = ['_templates']
