@@ -23,4 +23,5 @@ This course introduces learners to the fundamentals of numerical computation usi
    LabManual4thSemCoreSphinx/H#FourierSeriesSquareWave
    LabManual4thSemCoreSphinx/I#DiracDeltaFunction
    LabManual4thSemCoreSphinx/J#LegendrePoly
+   LabManual4thSemCoreSphinx/K#BesselFunction
 
